@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Big Question</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce5cd;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff6b6b;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .yes {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+        }
+
+        .no {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .animation-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .animation {
+            font-size: 24px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .heart-sticker {
+            position: absolute;
+            width: 50px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>The Big Question</header>
+
+    <!-- About Section -->
+    <section>
+        <p><h1>"Do You Like Me?" </h1></p>
+    </section>
+
+    <!-- Question Section -->
+    <section>
+        <button class="yes" onclick="handleResponse('yes')">Yes</button>
+        <button class="no" onclick="handleResponse('no')">No</button>
+    </section>
+
+    <!-- Animation Container for 'Yes' Response -->
+    <div id="animationYes" class="animation-container">
+        <div class="animation">
+           
+            <p>Yeaahhh, let's get married!</p>
+        </div>
+    </div>
+
+    <!-- Animation Container for 'No' Response -->
+    <div id="animationNo" class="animation-container">
+        <div class="animation">
+            
+            <p>I never even thought of you that way. Let's stay friends!</p>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <footer>&copy; 2023 The Big Question App</footer>
+
+    <script>
+        function handleResponse(response) {
+            if (response === 'yes') {
+                showAnimation('animationYes');
+            } else if (response === 'no') {
+                showAnimation('animationNo');
+            }
+        }
+
+        function showAnimation(animationId) {
+            const animation = document.getElementById(animationId);
+            animation.style.display = 'flex';
+
+            setTimeout(() => {
+                animation.style.display = 'none';
+            }, 3000); // Hide the animation after 3 seconds (adjust as needed)
+        }
+    </script>
+
+</body>
+</html>
